@@ -1,0 +1,92 @@
+﻿@using KodlaTv.WebApp
+@using KodlaTv.Entities
+@{
+    KodlatvUser user = null;
+    Channel channn = null;
+    if (Session["login"] != null)
+    {
+        user = Session["login"] as KodlatvUser;
+    }
+    else
+    {
+        user = null;
+    }
+    if (Session["chatchannel"] != null)
+    {
+        channn = Session["chatchannel"] as Channel;
+    }
+
+}
+
+
+<script src="~/Scripts/jquery.signalR-2.2.2.js"></script>
+<script src="~/SignalR/Hubs"></script>
+<script type="text/javascript">
+    $(function () {
+        var chat = $.connection.chatHub;
+        var $username = "";
+        var $message = $('#txtMessage');
+        var $messages = $('#messages');
+        $message.focus();
+        chat.client.sendMessage = function (name, message, group) {
+            if (@(channn.id)== group) {
+                $messages.append('<li><strong>' + name + '</strong>: ' + message + '</li>');
+            }
+        };
+        $.connection.hub.start().done(function () {
+            $('#btnSendMessage').click(function () {
+                var btn = $(this);
+                $username = btn.data("user-id");
+                chat.server.send($username, $message.val(),@(channn.id));
+
+                $message.val('').focus();
+            });
+        });
+    });
+</script>
+<link href="~/Content/chat.css" rel="stylesheet" />
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading" id="accordion">
+                    <span class="glyphicon glyphicon-comment"></span> Chat
+                    <div class="btn-group pull-right">
+                        <a type="button" class="btn btn-default btn-xs" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                            <span class="glyphicon glyphicon-chevron-down"></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="panel-collapse collapse" id="collapseOne">
+                    <div class="panel-body">
+                        <div id="messages">
+
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+                        <div class="input-group">
+                            @if (user != null)
+                            {
+                                <label for="txtMessage"></label> @Html.TextBox("txtMessage")
+                                <span class="input-group-btn">
+                                    <button id="btnSendMessage" data-user-id="@user.Username" class="btn btn-warning btn-xs">Gönder</button>
+                                </span>
+                            }
+                            else
+                            {
+                                <input id="btn-input" type="text" class="form-control input-sm" placeholder="Mesaj yazmak için giriş yapınız..." />
+                                       <span class="input-group-btn">
+                                           <a href="/Home/Login">
+                                               <button class="btn btn-warning btn-sm" id="btn-chat">
+                                                   Giriş
+                                               </button>
+                                           </a>
+                               </span>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

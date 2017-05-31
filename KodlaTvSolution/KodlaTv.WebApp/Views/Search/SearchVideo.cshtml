@@ -1,0 +1,55 @@
+﻿@using KodlaTv.Entities
+@using KodlaTv.WebApp
+@model IEnumerable<Video>
+@{
+    ViewBag.Title = "SearchVideo";
+}
+
+<div class="container">
+    <p>
+        <ul class="nav nav-tabs">
+            <li role="presentation"><a href="/Search/Index">Kullanıcılar</a></li>
+            <li role="presentation"><a href="/Search/SearchChannel">Kanallar</a></li>
+            <li role="presentation" class="active"><a href="/Search/SearchVideo">Videolar</a></li>
+
+            <form class="navbar-form navbar-left" role="search"  action="/Search/SearchVideo" method="post">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="searchword" placeholder="Anahtar Kelime">
+                </div>
+                <input type="submit" class="btn btn-default" value="Ara" />
+                Kategori:@Html.DropDownList("AllCategoryid", ViewBag.ProcedureSubCategoryID as SelectList, String.Empty)
+            </form>
+
+        </ul>
+
+    </p>
+</div>
+@if (Model != null) { 
+<section id="main-info" class="container">
+    <div>
+        <div class="row">
+            @foreach (Video video in Model)
+            {
+                <div class="col-sm-2 wow fadeIn" data-wow-delay="0.4s">
+                    <hr class="line purple">
+                    <iframe type="text/html" width="168" height="100" src="@video.Youtubeurl" frameborder="0"></iframe>
+                    <a href="/Channel/Userchannel/@video.Channel.Owner.id" style="position:absolute; top:0; left:0; display:inline-block; width:168px; height:100px; z-index:5;"></a>
+                    @if (string.IsNullOrEmpty(video.Videoinfo) == false && video.Videoinfo.Length > 27)
+                    {
+                        <h4 style="text-shadow:1px 1px white">@(video.Videoinfo.Substring(0, 27) + "...")</h4>
+                    }
+                    else
+                    {
+                        <h4 style="text-shadow:1px 1px white">@video.Videoinfo</h4>
+                    }
+                    <p style="font-weight: bold;text-shadow:1px 1px white">izleyici sayısı:@video.Watchnumber</p>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+}
+@section footer{
+    @Html.Partial("_PartialFooter")
+}

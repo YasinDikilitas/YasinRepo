@@ -1,0 +1,21 @@
+﻿@using KodlaTv.WebApp
+@using KodlaTv.Entities
+@model Video
+
+@{
+    ViewBag.Title = "Video izle";
+}
+<div class="container">
+    <div class="active item" data-slide-number="1">
+        <iframe type="text/html" width="1100" height="600" src="@(Model.Youtubeurl+"?autoplay=1")" frameborder="0"></iframe>
+    </div>
+
+</div>
+
+@section footer{
+    @Html.Partial("_PartialFooter")
+}
+
+
+
+

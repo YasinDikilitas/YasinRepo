@@ -1,0 +1,53 @@
+﻿@using KodlaTv.WebApp
+@using KodlaTv.Entities
+@model SendMessage
+
+@using (Html.BeginForm("Sendmessage", "SendMessage", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        @Html.ValidationSummary(false)
+        <div class="form-group">
+            @Html.LabelFor(model => model.Owner.Username, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.Owner.Username, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.Sender } })
+                </div>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Recievername, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.Recievername, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.Receiver } })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Messagetitle, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.Messagetitle, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Message, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.TextAreaFor(model => model.Message, 10, 58, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-9 col-md-3">
+                    @Bootstrap.Button("danger", string.Empty, "submit", "arrow-right", " Gönder")
+                </div>
+            </div>
+        </div>
+        }
+

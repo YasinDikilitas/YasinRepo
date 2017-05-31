@@ -1,0 +1,29 @@
+﻿@using KodlaTv.WebApp
+@using KodlaTv.Entities
+@{
+    IEnumerable<StreamerInfo> streamer = null;
+    streamer = Session["streamerinfo"] as IEnumerable<StreamerInfo>;
+}
+@if (streamer != null)
+{
+    foreach (StreamerInfo streamerinfo in streamer.Take(1))
+    {
+
+        <p>İsim:@streamerinfo.Name</p>
+        <p>Soyad:@streamerinfo.Surname</p>
+        <p>Alanlar:@streamerinfo.Interest</p>
+        <p>Tecrübeler:@streamerinfo.Experince</p>
+        <p>Yayın Yapılan işletim Sistemi:@streamerinfo.Usingos</p>
+        <p>Hobiler:@streamerinfo.Hobby</p>
+    }
+}
+else
+{
+
+    <p>İsim:</p>
+    <p>Soyad:</p>
+    <p>Alanlar:</p>
+    <p>Tecrübeler:</p>
+    <p>Yayın Yapılan işletim Sistemi:</p>
+    <p>Hobiler:</p>
+}

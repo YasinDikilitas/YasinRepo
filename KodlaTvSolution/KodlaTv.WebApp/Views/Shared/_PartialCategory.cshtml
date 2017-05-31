@@ -1,0 +1,29 @@
+﻿@using KodlaTv.WebApp
+@using KodlaTv.Entities
+
+@{
+    IEnumerable<Category> cat = null;
+    if (Session["Kategoriler"] != null)
+    {
+        cat = Session["Kategoriler"] as IEnumerable<Category>;
+    }
+}
+
+<section id="main-info" class="container">
+    <div>
+        <a href="/Category/ListAll"><h1 style="text-align: center; color: black;text-shadow:1px 1px white"> Yayındaki Diller </h1></a>
+
+        <div class="row">
+            @foreach (Category category in cat)
+            {
+                <div class="col-sm-3 wow fadeIn" data-wow-delay="0.4s">
+                    <hr class="line purple">
+                    <a href="/Category/Listone/@category.id"><img src="~/images/@category.Imagefile" class="img-responsive" height="210" width="210" alt="@category.Coursetitle" /></a>
+                    <h2 style="text-shadow:1px 1px white">@category.Coursetitle</h2>
+                    <p style="font-weight: bold;text-shadow:1px 1px white">@category.Coursesubcategory
+                    </p>
+                </div>
+            }
+        </div>
+    </div>
+</section>

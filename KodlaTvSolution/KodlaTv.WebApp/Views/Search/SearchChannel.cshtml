@@ -1,0 +1,46 @@
+﻿@using KodlaTv.Entities
+@using KodlaTv.WebApp
+@model IEnumerable<Channel>
+@{
+    ViewBag.Title = "SearchChannel";
+}
+
+<div class="container">
+    <p>
+        <ul class="nav nav-tabs">
+            <li role="presentation"><a href="/Search/Index">Kullanıcılar</a></li>
+            <li role="presentation" class="active"><a href="/Search/SearchChannel">Kanallar</a></li>
+            <li role="presentation"><a href="/Search/SearchVideo">Videolar</a></li>
+            <form class="navbar-form navbar-left" role="search" action="/Search/SearchChannel" method="post">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="searchword" placeholder="Anahtar Kelime">
+                </div>
+                <input type="submit" class="btn btn-default" value="Ara" />
+            </form>
+        </ul>
+
+    </p>
+</div>
+
+
+@if (Model != null)
+{
+    <section id="main-info" class="container">
+        <div>
+            <div class="row">
+                @foreach (Channel channel in Model)
+                {
+                    <div class="col-md-2">
+                        <a href="/Channel/UserChannel/@channel.Owner.id"><img src="~/Images/@channel.Imagefile" class="img-responsive" style="width:128px;height:128px;" /></a>
+                        <br />
+                        <b>@channel.Owner.Username</b>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+
+}
+@section footer{
+    @Html.Partial("_PartialFooter")
+}

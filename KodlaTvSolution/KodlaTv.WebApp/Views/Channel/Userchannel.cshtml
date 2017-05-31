@@ -1,0 +1,302 @@
+﻿@using KodlaTv.Entities
+@model IEnumerable<Video>
+@{
+    ViewBag.Title = "Userchannel";
+    KodlatvUser user = null;
+    if (Session["login"] != null)
+    {
+        user = Session["login"] as KodlatvUser;
+    }
+    StreamerInfo streamer = Session["streamerinfo"] as StreamerInfo;
+}
+
+<div class="row">
+    <div class="col-sm-2">
+        @if (user != null)
+        {
+            <div id="mySidenav" class="sidenav">
+                <!--<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>-->
+
+                <a href="/Home"><h2 data-wow-delay="0.4s" style="text-align: center;"> Kodla.tv </h2></a>
+                <a href="/Home"><i class="fa fa-home" style="font-size:30px;"></i> Ana Sayfa</a>
+                <a href="/SendMessage/UserReceiveMessagelist/@user.id"><i class="glyphicon glyphicon-envelope" style="font-size:30px;"></i> Mesaj Kutusu</a>
+                @if (user.isAdmin)
+                {
+                    <a href="/Channel/Index"><i class="fa fa-dashboard" style="font-size:30px;"></i> Yönetim Paneli</a>
+                }
+                <a href="/Search/Index"><i class="glyphicon glyphicon-search" style="font-size:30px;"></i> Arama</a>
+                <a href="/Subscribe/MySubscribe/@user.id"><i class="glyphicon glyphicon-credit-card" style="font-size:30px;"></i> Aboneliklerim</a>
+                <a href="/Follow/MyFollow/@user.id"><i class="glyphicon glyphicon-star" style="font-size:30px;"></i> Takip Ettiklerim</a>
+                <div class="row" style="position: absolute;
+    bottom: 20px;text-align:center;">
+                    <div class="col-sm-6" style="color:white">
+                        <a href="/Home/ShowProfile"><i class="glyphicon glyphicon-user" style="font-size:25px;"></i>Profilim</a>
+                    </div>
+                    <div class="col-sm-5" style="color:white">
+                        <a href="/Home/Logout"><i class="glyphicon glyphicon-off" style="font-size:25px;"></i> Çıkış</a>
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div id="mySidenav" class="sidenav">
+                <!--<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>-->
+
+                <h2 data-wow-delay="0.4s" style="text-align: center; color:white;"> Kodla.tv </h2>
+                <a href="/Home"><i class="fa fa-home" style="font-size:30px;"></i> Ana Sayfa</a>
+                <a href="/Search/Index"><i class="glyphicon glyphicon-search" style="font-size:30px;"></i> Arama</a>
+                <a href="/Video/AllList"><i class="glyphicon glyphicon-expand" style="font-size:30px;"></i> Gözat</a>
+                <div class="row" style="position: absolute;
+    bottom: 20px;text-align:center;">
+                    <div class="col-sm-6" style="color:white">
+                        <a href="/Home/Login"><i class="glyphicon glyphicon-log-in" style="font-size:25px;"></i>Giriş</a>
+                    </div>
+                    <div class="col-sm-5" style="color:white">
+                        <a href="/Home/Register"><i class="glyphicon glyphicon-user" style="font-size:25px;"></i> Üye Ol</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    @if (Model.Count<Video>() == 0)
+    {
+        <div class="col-sm-5">
+            <img src="~/Images/Offline.jpg" width="820" height="600" />
+        </div>
+    }
+    else
+    {
+        foreach (Video video in Model.Take(1))
+        {
+
+            <div class="col-sm-5">
+                <h3 style="color:black;">@video.Videoinfo<h6>@(video.Channel.Owner.Name + " " + video.Channel.Owner.Surname ) Tarafından Canlı Yayında</h6></h3>
+                <iframe width="820" height="480" src="@(video.Youtubeurl+"?autoplay=1")" frameborder="0" allowfullscreen></iframe>
+            </div>
+        }
+
+    }
+
+
+
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-1">
+        @Html.Partial("ChatMessages")
+    </div>
+    <div class="col-sm-2">
+    </div>
+</div><!--/Slider-->
+
+
+@foreach (Video video in Model.Take(1))
+{
+    if (user != null)
+    {
+        if (video.Channel.Owner.id == user.id)
+        {
+        }
+        else
+        {
+            <div class="container" data-channel-id="@video.Channel.id" style="width:80%;">
+                <div class="row">
+                    <div class="col-sm-1">
+                    </div>
+
+                    <div class="col-sm-9">
+                        <button class="btn btn-default btn-sm" type="button" data-followed="false" data-channel-id="@video.Channel.id">Takip Et</button>
+                        <button class="btn btn-danger btn-sm" type="button" data-complained="false" data-channel-id="@video.Channel.id">Şikayet Et</button>
+                        <button type="submit" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal_subscribe" data-channel-ownerid="@video.Channel.id">
+                            Abone Ol(4.99$)
+                        </button>
+                        <button type="submit" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal_domain" data-channel-ownerid="@video.Channel.id">
+                            Bağışta Bulun
+                        </button>
+                        <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal_offer" data-channel-ownerid="@video.Channel.Owner.id" data-user-id="@user.id">
+                            İş Teklif Et
+                        </button>
+                        <span &nbsp;&nbsp;>İzlenme Sayısı:@video.Watchnumber</span>
+                        <span &nbsp;&nbsp; class="follow-count">Takipçi Sayısı:@video.Channel.Follows.Count</span>
+
+                    </div>
+
+                    <div class="col-sm-2">
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="container" style="width:80%;">
+            <div class="row">
+                <div class="col-sm-1">
+                </div>
+                <div class="col-sm-9">
+                    <input type="submit" class="btn btn-default btn-sm" value="Takip Et"></input>
+                    <input type="submit" class="btn btn-danger btn-sm" value="Şikayet Et"></input>
+                    <button type="submit" class="btn btn-primary btn-sm">
+                        Abone Ol(4.99$)
+                    </button>
+                    <button type="submit" class="btn btn-success btn-sm">
+                        Bağışta Bulun
+                    </button>
+                    <button class="btn btn-info btn-sm">
+                        İş Teklif Et
+                    </button>
+
+                    <span &nbsp;&nbsp;>İzlenme Sayısı:@video.Watchnumber</span>
+                    <span &nbsp;&nbsp;>Takipçi Sayısı:@video.Channel.Follows.Count</span>
+                </div>
+                <div class="col-sm-2">
+                </div>
+            </div>
+        </div>
+    }
+
+}
+@if (Model.Count() != 0)
+{
+    foreach (Video video in Model.Take(1))
+    {
+        <div class="container" style="width:80%;">
+            <div class="row">
+                <h2 style="text-align:center;">Yayıncı Bilgileri</h2>
+                <div class="col-sm-1">
+                </div>
+                <div class="col-sm-3">
+                    <img src="~/Images/@video.Channel.Owner.Imagefile" alt="profil-foto" width="200">
+                </div>
+                <div class="col-sm-8">
+                    @if (streamer != null)
+                    {
+                        <p>İsim:@streamer.Name</p>
+                        <p>Soyad:@streamer.Surname</p>
+                        <p>Alanlar:@streamer.Interest</p>
+                        <p>Tecrübeler: @streamer.Experince</p>
+                        <p>Yayın Yapılan işletim Sistemi:@streamer.Usingos</p>
+                        <p>Hobiler:@streamer.Hobby</p>
+                    }
+                    else
+                    {
+                        <p>İsim:</p>
+                        <p>Soyad:</p>
+                        <p>Alanlar:</p>
+                        <p>Tecrübeler:</p>
+                        <p>Yayın Yapılan işletim Sistemi:</p>
+                        <p>Hobiler:</p>
+                    }
+                    @if (user != null)
+                    {
+                        if (video.Channel.Owner.id == user.id)
+                        {
+                            if (video.Channel.Owner.StreamerInfos.Count == 0)
+                            {
+                                @Bootstrap.LinkButton("/StreamerInfo/Create", "success", "btn-sm", string.Empty, null, " Yayıncı Bilgilerini Oluştur")
+                            }
+                            else
+                            {
+                                @Bootstrap.LinkButton("/StreamerInfo/Edit/" + video.Channel.Owner.id, "danger", "btn-sm", string.Empty, null, " Bilgileri Düzenle")
+                            }
+
+                        }
+                    }
+                    @Bootstrap.LinkButton("/Video/Myvideo/" + video.Channel.Owner.id, "danger", "btn-sm", string.Empty, null, " Önceki Yayınlar")
+                    @Bootstrap.LinkButton("/Subscribe/OtherSubscribe/" + video.Channel.id, "danger", "btn-sm", string.Empty, null, " Aboneler")
+                    @Bootstrap.LinkButton("/Follow/OtherFollow/" + video.Channel.id, "danger", "btn-sm", string.Empty, null, " Takipçiler")
+                </div>
+
+            </div>
+        </div>
+    }
+}
+else
+{
+    <div class="container" style="width:80%;">
+        <div class="row">
+            <h2 style="text-align:center;">Yayıncı Bilgileri</h2>
+            <div class="col-sm-1">
+            </div>
+            @if (streamer != null)
+            {
+                <div class="col-sm-3">
+                    <img src="~/Images/@streamer.Owner.Imagefile" alt="profil-foto" width="200">
+                </div>
+            }
+            else
+            {
+                <div class="col-sm-3">
+                    <img src="~/Images/user.png" alt="profil-foto" width="200">
+                </div>
+            }
+            <div class="col-sm-8">
+                @if (streamer != null)
+                {
+                    <p>İsim:@streamer.Name</p>
+                    <p>Soyad:@streamer.Surname</p>
+                    <p>Alanlar:@streamer.Interest</p>
+                        <p>Tecrübeler: @streamer.Experince</p>
+                        <p>Yayın Yapılan işletim Sistemi:@streamer.Usingos</p>
+                        <p>Hobiler:@streamer.Hobby</p>
+                }
+                else
+                {
+                    <p>İsim:</p>
+                    <p>Soyad:</p>
+                    <p>Alanlar:</p>
+                        <p>Tecrübeler:</p>
+                        <p>Yayın Yapılan işletim Sistemi:</p>
+                        <p>Hobiler:</p>
+                }
+                @if (streamer != null)
+                {
+                    if (user != null)
+                    {
+                        if (streamer.Owner.id == user.id)
+                        {
+                            if (streamer.Owner.StreamerInfos.Count == 0)
+                            {
+                                @Bootstrap.LinkButton("/StreamerInfo/Create", "success", "btn-sm", string.Empty, null, " Yayıncı Bilgilerini Oluştur")
+                            }
+                            else
+                            {
+                                @Bootstrap.LinkButton("/StreamerInfo/Edit/" + streamer.Owner.id, "danger", "btn-sm", string.Empty, null, " Bilgileri Düzenle")
+                            }
+
+                        }
+                    }
+                    @Bootstrap.LinkButton("/Video/Myvideo/" + streamer.Owner.id, "danger", "btn-sm", string.Empty, null, " Önceki Yayınlar")
+                }
+                else
+                {
+                    @Bootstrap.LinkButton("/StreamerInfo/Create", "success", "btn-sm", string.Empty, null, " Yayıncı Bilgilerini Oluştur")
+                }
+            </div>
+
+        </div>
+    </div>
+}
+
+<br />
+<br />
+<br />
+<br />
+@Bootstrap.ModalPopup(id: "modal_offer", title: "İş Teklif Et")
+@Bootstrap.ModalPopup(id: "modal_domain", title: "Bağış Yap")
+@Bootstrap.ModalPopup(id: "modal_subscribe", title: "Abone Ol")
+@foreach (Video videoa in Model.Take(1))
+{
+    if (user != null)
+    {
+        if (videoa.Channel.Owner.id == user.id)
+        {
+
+        }
+        else
+        {
+            <script src="~/Scripts/myscript.js"></script>
+        }
+
+    }
+}

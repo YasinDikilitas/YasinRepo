@@ -1,0 +1,36 @@
+﻿@using KodlaTv.Entities
+@model KodlatvUser
+@{
+    ViewBag.Title = "Profilim";
+}
+
+<div class="container">
+    <div class="row">
+        <h2>@ViewBag.Title</h2>
+        <hr />
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <img src="~/Images/@Model.Imagefile" class="img-circle" width="128" height="128" />
+        </div>
+        <div class="col-md-10">
+            <h3>@(Model.Name + " " + Model.Surname)</h3>
+            <br />
+            <h5><b>@Html.DisplayNameFor(model => model.Name) : </b>@Model.Name</h5>
+            <h5><b>@Html.DisplayNameFor(model => model.Surname) : </b>@Model.Surname</h5>
+            <h5><b>@Html.DisplayNameFor(model => model.Username) : </b>@Model.Username</h5>
+            <h5><b>@Html.DisplayNameFor(model => model.Email) : </b>@Model.Email</h5>
+            <h5><b>Oluşturulma Tarihi : </b>@Model.CreatedOn</h5>
+            <h5><b>Düzenlenme Tarihi: </b>@Model.ModifyDate</h5>
+            <br />
+            <br />
+            @Bootstrap.LinkButton("/Channel/Userchannel/" + @Model.id, "success", string.Empty, string.Empty, "arrow-right", " Kanalım")
+            @Bootstrap.LinkButton("/Video/MyVideo/"+ @Model.id, "info", string.Empty, string.Empty, "arrow-right", " Yayınlarım")
+            <br />
+            <br />
+
+        </div>
+
+    </div>
+</div>
+

@@ -1,0 +1,21 @@
+﻿@using KodlaTv.Entities
+@using KodlaTv.WebApp
+@model IEnumerable<Follow>
+@{
+    ViewBag.Title = "Takip Ettiklerim";
+}
+
+<section id="main-info" class="container">
+    <div>
+        <div class="row">
+            @foreach (Follow follow in Model)
+            {
+                <div class="col-md-2">
+                    <a href="/Channel/UserChannel/@follow.Channel.Owner.id"><img src="~/Images/@follow.Channel.Imagefile" class="img-responsive"  style="width:128px;height:128px;" /></a>
+                    <br />
+                    <b>@follow.Channel.Owner.Username</b>
+                </div>
+            }
+        </div>
+    </div>
+</section>

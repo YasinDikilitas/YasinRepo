@@ -1,0 +1,16 @@
+C:\Users\Yasin\Documents\Visual Studio 2015\Projects\KodlaTvSolution\KodlaTv.DataAccessLayer\bin\Debug\KodlaTv.DataAccessLayer.dll.config
+C:\Users\Yasin\Documents\Visual Studio 2015\Projects\KodlaTvSolution\KodlaTv.DataAccessLayer\bin\Debug\KodlaTv.DataAccessLayer.dll
+C:\Users\Yasin\Documents\Visual Studio 2015\Projects\KodlaTvSolution\KodlaTv.DataAccessLayer\bin\Debug\KodlaTv.DataAccessLayer.pdb
+C:\Users\Yasin\Documents\Visual Studio 2015\Projects\KodlaTvSolution\KodlaTv.DataAccessLayer\bin\Debug\EntityFramework.dll
+C:\Users\Yasin\Documents\Visual Studio 2015\Projects\KodlaTvSolution\KodlaTv.DataAccessLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Yasin\Documents\Visual Studio 2015\Projects\KodlaTvSolution\KodlaTv.DataAccessLayer\bin\Debug\KodlaTv.Common.dll
+C:\Users\Yasin\Documents\Visual Studio 2015\Projects\KodlaTvSolution\KodlaTv.DataAccessLayer\bin\Debug\KodlaTv.Core.dll
+C:\Users\Yasin\Documents\Visual Studio 2015\Projects\KodlaTvSolution\KodlaTv.DataAccessLayer\bin\Debug\KodlaTv.Entities.dll
+C:\Users\Yasin\Documents\Visual Studio 2015\Projects\KodlaTvSolution\KodlaTv.DataAccessLayer\bin\Debug\KodlaTv.Common.pdb
+C:\Users\Yasin\Documents\Visual Studio 2015\Projects\KodlaTvSolution\KodlaTv.DataAccessLayer\bin\Debug\KodlaTv.Core.pdb
+C:\Users\Yasin\Documents\Visual Studio 2015\Projects\KodlaTvSolution\KodlaTv.DataAccessLayer\bin\Debug\KodlaTv.Entities.pdb
+C:\Users\Yasin\Documents\Visual Studio 2015\Projects\KodlaTvSolution\KodlaTv.DataAccessLayer\bin\Debug\EntityFramework.xml
+C:\Users\Yasin\Documents\Visual Studio 2015\Projects\KodlaTvSolution\KodlaTv.DataAccessLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Yasin\Documents\Visual Studio 2015\Projects\KodlaTvSolution\KodlaTv.DataAccessLayer\obj\Debug\KodlaTv.DataAccessLayer.csprojResolveAssemblyReference.cache
+C:\Users\Yasin\Documents\Visual Studio 2015\Projects\KodlaTvSolution\KodlaTv.DataAccessLayer\obj\Debug\KodlaTv.DataAccessLayer.dll
+C:\Users\Yasin\Documents\Visual Studio 2015\Projects\KodlaTvSolution\KodlaTv.DataAccessLayer\obj\Debug\KodlaTv.DataAccessLayer.pdb

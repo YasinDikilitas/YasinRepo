@@ -1,0 +1,81 @@
+﻿@using KodlaTv.WebApp
+@model KodlaTv.Entities.Channel
+
+@{
+    ViewBag.Title = "Kanal Detay";
+}
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h2>@ViewBag.Title</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h4>Kanal</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.ChannelName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ChannelName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.StreamStatus)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.StreamStatus)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.complain)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.complain)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Imagefile)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Imagefile)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Owner)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Owner)
+            </dd>
+
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CreatedOn)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CreatedOn)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ModifyDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ModifyDate)
+            </dd>
+
+        </dl>
+    </div>
+    <div class="col-md-8 col-md-offset-2">
+        <p>
+            @Bootstrap.LinkButton("/Channel/Edit/" + Model.id, "warning", string.Empty, string.Empty, "edit", " Düzenle")
+            @Bootstrap.LinkButton("/Channel/Index", "default", string.Empty, string.Empty, "arrow-left", " Geri Dön!")
+        </p>
+    </div>
+</div>

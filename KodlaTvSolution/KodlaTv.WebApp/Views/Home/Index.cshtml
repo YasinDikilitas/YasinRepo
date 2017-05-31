@@ -1,0 +1,89 @@
+﻿@using KodlaTv.WebApp
+@model IEnumerable<KodlaTv.Entities.Video>
+@{
+    ViewBag.Title = "Index";
+    var a = 0;
+    var b = 0;
+    var c = 0;
+}
+<br />
+<br />
+<div class="container">
+    <div id="main_area">
+        <!-- Slider -->
+        <div class="row">
+            <div class="col-xs-12" id="slider">
+                <!-- Top part of the slider -->
+                <div class="row">
+                    <a href="demo2.html">
+                        <div class="col-sm-8" id="carousel-bounding-box">
+                            <div class="carousel slide" id="myCarousel">
+                                <!-- Carousel items -->
+                                <div class="carousel-inner">
+                                    @foreach (var videomain in Model.Take(6))
+                                    {
+                                        if (c < 1)
+                                        {
+                                            <div class="active item" data-slide-number="@(c++)">
+                                                <iframe type="text/html" width="800" height="400" src="@(videomain.Youtubeurl+"?autoplay=0")" frameborder="0"></iframe>
+                                                <a href="/Channel/Userchannel/@videomain.Channel.Owner.id" style="position:absolute; top:0; left:0; display:inline-block; width:500px; height:500px; z-index:5;"></a>
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="item" data-slide-number="@(c++)">
+                                                <iframe type="text/html" width="800" height="400" src="@(videomain.Youtubeurl+"?autoplay=0")" frameborder="0"></iframe>
+                                                <a href="/Channel/Userchannel/@videomain.Channel.Owner.id" style="position:absolute; top:0; left:0; display:inline-block; width:500px; height:500px; z-index:5;"></a>
+                                            </div>
+                                        }
+
+                                    }
+                                    <!-- Carousel nav -->
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="col-sm-4" id="carousel-text"></div>
+
+                    <div id="slide-content" style="display: none; ">
+                        @foreach (var videoinfos in Model.Take(6))
+                        {
+                            <div id="slide-content-@(b++)">
+                                <h2>@videoinfos.Videoinfo</h2>
+                                <h5>@(videoinfos.Channel.Owner.Name + " " + videoinfos.Channel.Owner.Surname)</h5>
+                                <p>@(videoinfos.Category.Coursetitle + " " + videoinfos.Category.Coursesubcategory)</p>
+                                <p class="sub-text">İzleyen Sayisi:@videoinfos.Watchnumber <a href="/Channel/Userchannel/@videoinfos.Channel.Owner.id">Hemen İzle !</a></p>
+                            </div>
+                            ;
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div><!--/Slider-->
+
+        <div class="row hidden-xs" id="slider-thumbs">
+            <!-- Bottom switcher of slider -->
+            <ul class="hide-bullets">
+                @foreach (var videomainchannel in Model.Take(6))
+                {
+                    <li class="col-sm-2">
+                        <a class="thumbnail" id="carousel-selector-@(a++)">
+                            <img src="~/images/@videomainchannel.Channel.Imagefile" style="height:70px;width:230px;" />
+                        </a>
+                    </li>
+
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+
+@Html.Partial("_PartialCategory");
+
+@Html.Partial("_PartialVideos");
+
+
+@section footer{
+    @Html.Partial("_PartialFooter")
+}

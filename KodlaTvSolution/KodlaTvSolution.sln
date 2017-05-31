@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KodlaTv.WebApp", "KodlaTv.WebApp\KodlaTv.WebApp.csproj", "{A58B7B4B-E003-4CED-BE6C-03CAA16AFC61}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KodlaTv.BusinessLayer", "KodlaTv.BusinessLayer\KodlaTv.BusinessLayer.csproj", "{3BA39314-7B4D-44ED-842E-5ACB40D7B28A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KodlaTv.DataAccessLayer", "KodlaTv.DataAccessLayer\KodlaTv.DataAccessLayer.csproj", "{09923E9D-36EB-44E2-B890-8E8CB363AA19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KodlaTv.Entities", "KodlaTv.Entities\KodlaTv.Entities.csproj", "{416B646F-BCDE-4DE3-9C25-F5A4AD6B7E15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KodlaTv.Common", "KodlaTv.Common\KodlaTv.Common.csproj", "{4450A67A-4B8F-4F6C-89B0-850E3E7B545F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KodlaTv.Core", "KodlaTv.Core\KodlaTv.Core.csproj", "{59BB079E-D82E-46EA-8574-447E8437EBF7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A58B7B4B-E003-4CED-BE6C-03CAA16AFC61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A58B7B4B-E003-4CED-BE6C-03CAA16AFC61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A58B7B4B-E003-4CED-BE6C-03CAA16AFC61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A58B7B4B-E003-4CED-BE6C-03CAA16AFC61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BA39314-7B4D-44ED-842E-5ACB40D7B28A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BA39314-7B4D-44ED-842E-5ACB40D7B28A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BA39314-7B4D-44ED-842E-5ACB40D7B28A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BA39314-7B4D-44ED-842E-5ACB40D7B28A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09923E9D-36EB-44E2-B890-8E8CB363AA19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09923E9D-36EB-44E2-B890-8E8CB363AA19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09923E9D-36EB-44E2-B890-8E8CB363AA19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09923E9D-36EB-44E2-B890-8E8CB363AA19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{416B646F-BCDE-4DE3-9C25-F5A4AD6B7E15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{416B646F-BCDE-4DE3-9C25-F5A4AD6B7E15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{416B646F-BCDE-4DE3-9C25-F5A4AD6B7E15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{416B646F-BCDE-4DE3-9C25-F5A4AD6B7E15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4450A67A-4B8F-4F6C-89B0-850E3E7B545F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4450A67A-4B8F-4F6C-89B0-850E3E7B545F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4450A67A-4B8F-4F6C-89B0-850E3E7B545F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4450A67A-4B8F-4F6C-89B0-850E3E7B545F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59BB079E-D82E-46EA-8574-447E8437EBF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59BB079E-D82E-46EA-8574-447E8437EBF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59BB079E-D82E-46EA-8574-447E8437EBF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59BB079E-D82E-46EA-8574-447E8437EBF7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

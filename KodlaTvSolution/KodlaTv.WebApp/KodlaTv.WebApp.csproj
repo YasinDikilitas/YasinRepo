@@ -1,0 +1,438 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A58B7B4B-E003-4CED-BE6C-03CAA16AFC61}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KodlaTv.WebApp</RootNamespace>
+    <AssemblyName>KodlaTv.WebApp</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.2.2\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.2.2\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\animate.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\chat.css" />
+    <Content Include="Content\creditcard.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\login-register.css" />
+    <Content Include="Content\main.css" />
+    <Content Include="Content\shop-homepage.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Images\ad.png" />
+    <Content Include="Images\ad2.png" />
+    <Content Include="Images\c++.png" />
+    <Content Include="Images\Offline.jpg" />
+    <Content Include="Images\user.png" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\card.js" />
+    <Content Include="Scripts\chat.js" />
+    <Content Include="Scripts\jquery-1.11.0.min.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.2.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.2.min.js" />
+    <Content Include="Scripts\main.js" />
+    <Content Include="Scripts\modernizr-2.7.1.js" />
+    <Content Include="Scripts\myscript.js" />
+    <Content Include="Scripts\npm.js" />
+    <Content Include="Scripts\slider.js" />
+    <Content Include="Scripts\wow.min.js" />
+    <Content Include="Webicerik\img\arkaplan_1.jpg" />
+    <Content Include="Webicerik\img\arkaplan_2.jpeg" />
+    <Content Include="Webicerik\img\arkaplan_3.jpg" />
+    <Content Include="Webicerik\img\arkaplan_4.jpg" />
+    <Content Include="Webicerik\img\asp.jpg" />
+    <Content Include="Webicerik\img\asp.png" />
+    <Content Include="Webicerik\img\baslangic1.jpg" />
+    <Content Include="Webicerik\img\baslangic2.jpg" />
+    <Content Include="Webicerik\img\baslangic3.jpg" />
+    <Content Include="Webicerik\img\baslangic4.jpg" />
+    <Content Include="Webicerik\img\baslangic5.jpg" />
+    <Content Include="Webicerik\img\baslangic6.jpg" />
+    <Content Include="Webicerik\img\c++.png" />
+    <Content Include="Webicerik\img\c.png" />
+    <Content Include="Webicerik\img\csharp.png" />
+    <Content Include="Webicerik\img\header.png" />
+    <Content Include="Webicerik\img\ileri.jpg" />
+    <Content Include="Webicerik\img\ileri2.png" />
+    <Content Include="Webicerik\img\ileri3.jpg" />
+    <Content Include="Webicerik\img\ileri4.jpg" />
+    <Content Include="Webicerik\img\ileri5.png" />
+    <Content Include="Webicerik\img\ileri6.png" />
+    <Content Include="Webicerik\img\izleyen_avantaj.jpeg" />
+    <Content Include="Webicerik\img\izleyici.png" />
+    <Content Include="Webicerik\img\java.png" />
+    <Content Include="Webicerik\img\javascript.png" />
+    <Content Include="Webicerik\img\logo.png" />
+    <Content Include="Webicerik\img\mobil1.png" />
+    <Content Include="Webicerik\img\mobil2.jpg" />
+    <Content Include="Webicerik\img\mobil3.png" />
+    <Content Include="Webicerik\img\mobil4.png" />
+    <Content Include="Webicerik\img\mobil5.jpg" />
+    <Content Include="Webicerik\img\mobil6.jpg" />
+    <Content Include="Webicerik\img\pc1.png" />
+    <Content Include="Webicerik\img\pc2.png" />
+    <Content Include="Webicerik\img\pc3.png" />
+    <Content Include="Webicerik\img\pc4.png" />
+    <Content Include="Webicerik\img\pc5.png" />
+    <Content Include="Webicerik\img\pc6.png" />
+    <Content Include="Webicerik\img\php.png" />
+    <Content Include="Webicerik\img\profil.png" />
+    <Content Include="Webicerik\img\python.png" />
+    <Content Include="Webicerik\img\swift.jpg" />
+    <Content Include="Webicerik\img\yayın.png" />
+    <Content Include="Webicerik\index2.html" />
+    <Content Include="Webicerik\index3.html" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="App_Code\Bootstrap.cshtml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Webicerik\demo.html" />
+    <Content Include="Webicerik\demo2.html" />
+    <Content Include="Webicerik\index.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <None Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.1.1.js" />
+    <Content Include="Scripts\jquery-3.1.1.min.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="ChatHub.cs" />
+    <Compile Include="Controllers\BroadcastController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\ChannelController.cs" />
+    <Compile Include="Controllers\CreditCardController.cs" />
+    <Compile Include="Controllers\FollowController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KodlatvUserController.cs" />
+    <Compile Include="Controllers\OtherController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Controllers\SendMessageController.cs" />
+    <Compile Include="Controllers\StreamerInfoController.cs" />
+    <Compile Include="Controllers\SubscribeController.cs" />
+    <Compile Include="Controllers\VideoController.cs" />
+    <Compile Include="Filters\Auth.cs" />
+    <Compile Include="Filters\AuthAdmin.cs" />
+    <Compile Include="Filters\Exc.cs" />
+    <Compile Include="Filters\SecondaryAuth.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Init\WebCommon.cs" />
+    <Compile Include="Models\CurrentSession.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\ErrorViewModel.cs" />
+    <Compile Include="ViewModels\InfoViewModel.cs" />
+    <Compile Include="ViewModels\NotifyViewModelBase.cs" />
+    <Compile Include="ViewModels\OkViewModel.cs" />
+    <Compile Include="ViewModels\WarningViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="packages.config" />
+    <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.1.1.min.map" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Register.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\ShowProfile.cshtml" />
+    <Content Include="Views\Home\EditProfile.cshtml" />
+    <Content Include="Views\Shared\Ok.cshtml" />
+    <Content Include="Views\Shared\Warning.cshtml" />
+    <Content Include="Views\Shared\Info.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_PartialFooter.cshtml" />
+    <Content Include="Views\Category\Create.cshtml" />
+    <Content Include="Views\Category\Delete.cshtml" />
+    <Content Include="Views\Category\Details.cshtml" />
+    <Content Include="Views\Category\Edit.cshtml" />
+    <Content Include="Views\Category\Index.cshtml" />
+    <Content Include="Views\Shared\_PartialVideos.cshtml" />
+    <Content Include="Views\KodlatvUser\Create.cshtml" />
+    <Content Include="Views\KodlatvUser\Delete.cshtml" />
+    <Content Include="Views\KodlatvUser\Details.cshtml" />
+    <Content Include="Views\KodlatvUser\Edit.cshtml" />
+    <Content Include="Views\KodlatvUser\Index.cshtml" />
+    <Content Include="Views\Channel\Create.cshtml" />
+    <Content Include="Views\Channel\Delete.cshtml" />
+    <Content Include="Views\Channel\Details.cshtml" />
+    <Content Include="Views\Channel\Edit.cshtml" />
+    <Content Include="Views\Channel\Index.cshtml" />
+    <Content Include="Views\Video\Create.cshtml" />
+    <Content Include="Views\Video\Delete.cshtml" />
+    <Content Include="Views\Video\Details.cshtml" />
+    <Content Include="Views\Video\Edit.cshtml" />
+    <Content Include="Views\Video\Index.cshtml" />
+    <Content Include="Views\Shared\_PartialCategory.cshtml" />
+    <Content Include="Views\Channel\Userchannel.cshtml" />
+    <Content Include="Views\Broadcast\Index.cshtml" />
+    <Content Include="Views\Broadcast\OBS.cshtml" />
+    <Content Include="Views\Shared\_PartialNext.cshtml" />
+    <Content Include="Views\Shared\_PartialMobil.cshtml" />
+    <Content Include="Views\Shared\_PartialEasy.cshtml" />
+    <Content Include="Views\Category\Listone.cshtml" />
+    <Content Include="Views\Channel\CreateChannel.cshtml" />
+    <Content Include="Views\Channel\EditChannel.cshtml" />
+    <Content Include="Views\Channel\UserBroadcast.cshtml" />
+    <Content Include="Views\Category\ListAll.cshtml" />
+    <Content Include="Views\Video\ListAllAdvanced.cshtml" />
+    <Content Include="Views\Video\ListAllComputer.cshtml" />
+    <Content Include="Views\Video\ListAllMobil.cshtml" />
+    <Content Include="Views\Video\ListAllEasy.cshtml" />
+    <Content Include="Views\Video\AllList.cshtml" />
+    <Content Include="Views\Video\PopularBroadcast.cshtml" />
+    <Content Include="Views\Video\MyVideo.cshtml" />
+    <Content Include="Views\Video\Watchvideo.cshtml" />
+    <Content Include="Views\StreamerInfo\Edit.cshtml" />
+    <Content Include="Views\StreamerInfo\Create.cshtml" />
+    <Content Include="Views\Shared\_PartialStreamer.cshtml" />
+    <Content Include="Views\Shared\_PartialMessage.cshtml" />
+    <Content Include="Views\SendMessage\UserMessagelist.cshtml" />
+    <Content Include="Views\SendMessage\Details.cshtml" />
+    <Content Include="Views\SendMessage\UserReceiveMessagelist.cshtml" />
+    <Content Include="Views\Search\Index.cshtml" />
+    <Content Include="Views\Search\SearchChannel.cshtml" />
+    <Content Include="Views\Search\SearchVideo.cshtml" />
+    <Content Include="Views\Follow\MyFollow.cshtml" />
+    <Content Include="Views\Shared\_PartialCard.cshtml" />
+    <Content Include="Views\Shared\_PartialSubscribe.cshtml" />
+    <Content Include="Views\Other\LostPassword.cshtml" />
+    <Content Include="Views\Other\ChangePassword.cshtml" />
+    <Content Include="Views\Subscribe\MySubscribe.cshtml" />
+    <Content Include="Views\Follow\OtherFollow.cshtml" />
+    <Content Include="Views\Subscribe\OtherSubscribe.cshtml" />
+    <Content Include="Views\Home\AccessDenied.cshtml" />
+    <Content Include="Views\Home\HasError.cshtml" />
+    <Content Include="Views\Channel\ChatMessages.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="ChatFile\" />
+    <Folder Include="Views\CreditCard\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KodlaTv.BusinessLayer\KodlaTv.BusinessLayer.csproj">
+      <Project>{3ba39314-7b4d-44ed-842e-5acb40d7b28a}</Project>
+      <Name>KodlaTv.BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KodlaTv.Common\KodlaTv.Common.csproj">
+      <Project>{4450a67a-4b8f-4f6c-89b0-850e3e7b545f}</Project>
+      <Name>KodlaTv.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KodlaTv.Core\KodlaTv.Core.csproj">
+      <Project>{59bb079e-d82e-46ea-8574-447e8437ebf7}</Project>
+      <Name>KodlaTv.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KodlaTv.DataAccessLayer\KodlaTv.DataAccessLayer.csproj">
+      <Project>{09923E9D-36EB-44E2-B890-8E8CB363AA19}</Project>
+      <Name>KodlaTv.DataAccessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KodlaTv.Entities\KodlaTv.Entities.csproj">
+      <Project>{416b646f-bcde-4de3-9c25-f5a4ad6b7e15}</Project>
+      <Name>KodlaTv.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>54535</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:54535/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

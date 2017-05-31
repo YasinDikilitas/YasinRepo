@@ -1,0 +1,21 @@
+﻿@using KodlaTv.Entities
+@using KodlaTv.WebApp
+@model IEnumerable<Subscribe>
+@{
+    ViewBag.Title = "Aboneliklerim";
+}
+
+<section id="main-info" class="container">
+    <div>
+        <div class="row">
+            @foreach (Subscribe subscribe in Model)
+            {
+                <div class="col-md-2">
+                    <a href="/Channel/UserChannel/@subscribe.Channel.Owner.id"><img src="~/Images/@subscribe.Channel.Imagefile" class="img-responsive" style="width:128px;height:128px;" /></a>
+                    <br />
+                    <b>@subscribe.Channel.Owner.Username</b>
+                </div>
+            }
+        </div>
+    </div>
+</section>

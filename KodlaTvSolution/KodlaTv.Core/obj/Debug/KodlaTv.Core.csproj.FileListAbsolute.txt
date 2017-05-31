@@ -1,0 +1,5 @@
+C:\Users\Yasin\Documents\Visual Studio 2015\Projects\KodlaTvSolution\KodlaTv.Core\bin\Debug\KodlaTv.Core.dll
+C:\Users\Yasin\Documents\Visual Studio 2015\Projects\KodlaTvSolution\KodlaTv.Core\bin\Debug\KodlaTv.Core.pdb
+C:\Users\Yasin\Documents\Visual Studio 2015\Projects\KodlaTvSolution\KodlaTv.Core\obj\Debug\KodlaTv.Core.csprojResolveAssemblyReference.cache
+C:\Users\Yasin\Documents\Visual Studio 2015\Projects\KodlaTvSolution\KodlaTv.Core\obj\Debug\KodlaTv.Core.dll
+C:\Users\Yasin\Documents\Visual Studio 2015\Projects\KodlaTvSolution\KodlaTv.Core\obj\Debug\KodlaTv.Core.pdb

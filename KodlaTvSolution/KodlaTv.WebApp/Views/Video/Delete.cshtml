@@ -1,0 +1,89 @@
+﻿@using KodlaTv.WebApp
+@model KodlaTv.Entities.Video
+
+@{
+    ViewBag.Title = "Yayın Sil";
+}
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h2>@ViewBag.Title</h2>
+        <h3>Silmek istediğinize emin misiniz?</h3>
+    </div>
+</div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <h4>Yayın</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Videoinfo)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Videoinfo)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Youtubeurl)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Youtubeurl)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Levelofvideo)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Levelofvideo)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Watchnumber)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Watchnumber)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Likenumber)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Likenumber)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.CreatedOn)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.CreatedOn)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.ModifyDate)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ModifyDate)
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    @Bootstrap.Button("danger", string.Empty, "submit", "remove", " Kaldır")
+                    @Bootstrap.LinkButton("/Video/Index", "default", string.Empty, string.Empty, "arrow-left", " Back to List")
+                </div>
+            }
+        </div>
+
+    </div>
+

@@ -1,0 +1,28 @@
+﻿@using KodlaTv.WebApp
+@using KodlaTv.Entities
+@model IEnumerable<Video>
+
+
+<section id="main-info" class="container">
+    <div>
+        <div class="row">
+            @foreach (Video videohard in Model)
+            {
+                <div class="col-sm-2 wow fadeIn" data-wow-delay="0.4s">
+                    <hr class="line purple">
+                    <iframe type="text/html" width="168" height="100" src="@videohard.Youtubeurl" frameborder="0"></iframe>
+                    <a href="/Channel/Userchannel/@videohard.Channel.Owner.id" style="position:absolute; top:0; left:0; display:inline-block; width:168px; height:100px; z-index:5;"></a>
+                    @if (string.IsNullOrEmpty(videohard.Videoinfo) == false && videohard.Videoinfo.Length > 27)
+                    {
+                        <h4 style="text-shadow:1px 1px white">@(videohard.Videoinfo.Substring(0, 27) + "...")</h4>
+                    }
+                    else
+                    {
+                        <h4 style="text-shadow:1px 1px white">@videohard.Videoinfo</h4>
+                    }
+                    <p style="font-weight: bold;text-shadow:1px 1px white">izleyici sayısı:@videohard.Watchnumber</p>
+                </div>
+            }
+        </div>
+    </div>
+</section>

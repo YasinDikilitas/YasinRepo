@@ -1,0 +1,82 @@
+﻿@using KodlaTv.WebApp
+@using KodlaTv.Entities
+@model IEnumerable<KodlaTv.Entities.SendMessage>
+
+@{
+    ViewBag.Title = "Gelen Kutusu";
+    KodlatvUser usera = Session["login"] as KodlatvUser;
+}
+
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <h2>@ViewBag.Title</h2>
+        <hr />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <p>
+            <ul class="nav nav-tabs">
+                <li role="presentation" class="active"><a href="/SendMessage/UserReceiveMessagelist/@usera.id">Gelen Kutusu</a></li>
+                <li role="presentation"><a href="/SendMessage/UserMessagelist/@usera.id">Giden Kutusu</a></li>
+            </ul>
+            <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal_message" data-userid="@usera.id">
+                Mesaj Gönder
+            </button>
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Owner.Username)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Recievername)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Messagetitle)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Message)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Owner.Username)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Recievername)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Messagetitle)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Message)
+                    </td>
+                    <td>
+                        @Bootstrap.LinkButton("/SendMessage/Details/" + item.id, "info", "btn-xs", "Mesajı Gör", "envelope", "Mesajı Gör")
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+@Bootstrap.ModalPopup(id: "modal_message", title: "Mesaj Gönder")
+
+<script>
+    $(function () {
+
+        $('#modal_message').on('show.bs.modal', function (e) {
+
+            var btn = $(e.relatedTarget);
+            ownerid = btn.data("userid");
+            $("#modal_message_body").load("/SendMessage/Sendmessage/" + ownerid);
+        })
+
+    });
+</script>

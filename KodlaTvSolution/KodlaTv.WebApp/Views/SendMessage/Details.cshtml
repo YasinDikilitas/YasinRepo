@@ -1,0 +1,87 @@
+﻿@using KodlaTv.WebApp
+@using KodlaTv.Entities
+
+@model KodlaTv.Entities.SendMessage
+
+@{
+    ViewBag.Title = "Mesaj Detayı";
+    KodlatvUser user = Session["login"] as KodlatvUser;
+
+}
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h2>@ViewBag.Title</h2>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h4>Mesaj</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Owner.Username)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Owner.Username)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Recievername)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Recievername)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Messagetitle)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Messagetitle)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Message)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Message)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CreatedOn)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CreatedOn)
+            </dd>
+        </dl>
+    </div>
+    <div class="col-md-8 col-md-offset-2">
+        <p>          
+            <button class="btn btn-info btn-sm glyphicon glyphicon-arrow-right" data-toggle="modal" data-target="#modal_message" data-channelid="@Model.Owner.id"> 
+               Cevapla
+            </button>
+        </p>
+    </div>
+</div>
+
+@Bootstrap.ModalPopup(id: "modal_message", title: "Mesaj Gönder")
+
+<script>
+    $(function () {
+
+        $('#modal_message').on('show.bs.modal', function (e) {
+
+            var btn = $(e.relatedTarget);
+            ownerid = btn.data("channelid");
+            $("#modal_message_body").load("/SendMessage/Sendmessage/" + ownerid);
+        })
+
+    });
+</script>

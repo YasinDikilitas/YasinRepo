@@ -1,0 +1,68 @@
+﻿@using KodlaTv.WebApp
+@using KodlaTv.Entities
+@model CreditCard
+
+<script src="~/Scripts/card.js"></script>
+<link href="~/Content/creditcard.css" rel="stylesheet" />
+
+<div class='row'>
+    <div class='col-md-12'></div>
+    <div class='col-md-12'>
+        <script src='https://js.stripe.com/v2/' type='text/javascript'></script>
+        @using (Html.BeginForm("Subscribe", "CreditCard", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            <div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓" /><input name="_method" type="hidden" value="PUT" /><input name="authenticity_token" type="hidden" value="qLZ9cScer7ZxqulsUWazw4x3cSEzv899SP/7ThPCOV8=" /></div>
+            @Html.ValidationSummary(false)
+            <div class='form-row'>
+                <div class='col-xs-12 form-group required'>
+                    <label class='control-label'>Kart Sahibinin Adı</label>
+                    @Html.EditorFor(model => model.CardName, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+                <div class='form-row'>
+                    <div class='col-xs-12 form-group card required'>
+                        <label class='control-label'>Kart Numarası</label>
+                        @Html.EditorFor(model => model.CardNumber, new { htmlAttributes = new { @class = "form-control", @placeholder="Ör.4444-4444-4444-4444"} })
+                    </div>
+                </div>
+                <div class='form-row'>
+                    <div class='col-xs-4 form-group cvc required'>
+                        <label class='control-label'>CVC</label>
+                        @Html.EditorFor(model => model.Cardcvc, new { htmlAttributes = new { @class = "form-control", @placeholder = "Ör.222" } })
+                    </div>
+                    <div class='col-xs-4 form-group expiration required'>
+                        <label class='control-label'>S.K.T</label>
+                        @Html.EditorFor(model => model.Cardlastmonth, new { htmlAttributes = new { @class = "form-control", @placeholder = "Ör.12" } })
+                    </div>
+                    <div class='col-xs-4 form-group expiration required'>
+                        <label class='control-label'> </label>
+                        @Html.EditorFor(model => model.Cardlastyear, new { htmlAttributes = new { @class = "form-control", @placeholder = "Ör.2022" } })
+                    </div>
+                </div>
+                <div class='form-row'>
+                    <div class='col-md-12'>
+                        <div class='form-control total btn btn-info'>
+                            Miktar:
+                            <span class='amount'>$4.99</span>
+                        </div>
+                    </div>
+                </div>
+                <div class='form-row'>
+                    <div class='col-md-12 form-group'>
+                        <button class='form-control btn btn-primary submit-button' type='submit'>Ödeme Yap »</button>
+                    </div>
+                </div>
+                <div class='form-row'>
+                    <div class='col-md-12 error form-group hide'>
+                        <div class='alert-danger alert'>
+                            Lütfen Hataları Düzeltip Tekrar Deneyiniz.
+                        </div>
+                    </div>
+                </div>
+        }
+    </div>
+    <div class='col-md-4'></div>
+</div>
+
+

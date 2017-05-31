@@ -1,0 +1,10 @@
+C:\Users\Yasin\Documents\Visual Studio 2015\Projects\KodlaTvSolution\KodlaTv.Entities\bin\Debug\KodlaTv.Entities.dll.config
+C:\Users\Yasin\Documents\Visual Studio 2015\Projects\KodlaTvSolution\KodlaTv.Entities\bin\Debug\KodlaTv.Entities.dll
+C:\Users\Yasin\Documents\Visual Studio 2015\Projects\KodlaTvSolution\KodlaTv.Entities\bin\Debug\KodlaTv.Entities.pdb
+C:\Users\Yasin\Documents\Visual Studio 2015\Projects\KodlaTvSolution\KodlaTv.Entities\bin\Debug\EntityFramework.dll
+C:\Users\Yasin\Documents\Visual Studio 2015\Projects\KodlaTvSolution\KodlaTv.Entities\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Yasin\Documents\Visual Studio 2015\Projects\KodlaTvSolution\KodlaTv.Entities\bin\Debug\EntityFramework.xml
+C:\Users\Yasin\Documents\Visual Studio 2015\Projects\KodlaTvSolution\KodlaTv.Entities\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Yasin\Documents\Visual Studio 2015\Projects\KodlaTvSolution\KodlaTv.Entities\obj\Debug\KodlaTv.Entities.csprojResolveAssemblyReference.cache
+C:\Users\Yasin\Documents\Visual Studio 2015\Projects\KodlaTvSolution\KodlaTv.Entities\obj\Debug\KodlaTv.Entities.dll
+C:\Users\Yasin\Documents\Visual Studio 2015\Projects\KodlaTvSolution\KodlaTv.Entities\obj\Debug\KodlaTv.Entities.pdb
